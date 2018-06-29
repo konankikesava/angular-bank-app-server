@@ -1,1 +1,2 @@
-Angular JS Bank App Server
+# angularBankApp
+Backend implementation with JAVA Spring REST API and Spring Security
