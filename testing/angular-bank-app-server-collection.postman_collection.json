@@ -1,0 +1,37 @@
+{
+	"variables": [],
+	"info": {
+		"name": "angular-bank-app-server-collection",
+		"_postman_id": "5823ed60-8712-5eec-81cc-b480611b9109",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"description": "",
+			"item": [
+				{
+					"name": "{{angular_bank_app_server_URL}}/login",
+					"request": {
+						"url": "{{angular_bank_app_server_URL}}/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"banker\",\n\t\"password\": \"password\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
