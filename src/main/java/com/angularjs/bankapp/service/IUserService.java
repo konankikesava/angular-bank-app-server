@@ -6,6 +6,7 @@
 package com.angularjs.bankapp.service;
 
 import com.angularjs.bankapp.model.User;
+import com.angularjs.bankapp.restmodels.UserResponse;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public interface IUserService {
     
     User findUserByUsername(String username);
 
-    List<User> findAllUsers();
+    List<UserResponse> findAllUsers();
 
     void saveUser(User user);
      

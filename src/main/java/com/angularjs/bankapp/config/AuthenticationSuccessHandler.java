@@ -20,12 +20,12 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
     private RequestCache requestCache = new HttpSessionRequestCache();
 
     private static final Logger LOGGER
-            = Logger.getLogger(AuthenticationSuccessHandler.class.getCanonicalName());
+            = Logger.getLogger(AuthenticationSuccessHandler.class.getName());
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws ServletException, IOException {
-        LOGGER.info("On Authentication success");
+        LOGGER.info("onAuthenticationSuccess: Successful authentication");
         SavedRequest savedRequest = requestCache.getRequest(request, response);
 
         if (savedRequest == null) {

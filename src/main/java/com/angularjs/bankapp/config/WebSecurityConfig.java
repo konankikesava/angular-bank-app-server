@@ -123,7 +123,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling()
                 .authenticationEntryPoint(restAuthenticationEntryPoint);
-                
     }
 
     @Bean

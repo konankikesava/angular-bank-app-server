@@ -7,6 +7,8 @@ package com.angularjs.bankapp.service;
 
 import com.angularjs.bankapp.dao.IUserDao;
 import com.angularjs.bankapp.model.User;
+import com.angularjs.bankapp.restmodels.UserResponse;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -38,8 +40,15 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public List<User> findAllUsers() {
-        return userDao.findAllUsers();
+    public List<UserResponse> findAllUsers() {
+        List<User> users = userDao.findAllUsers();
+        List<UserResponse> usersListResponse = new ArrayList<>();
+        if(users.size() > 0) {
+            users.forEach(
+                    (user) -> usersListResponse.add(new UserResponse(user))
+            );
+        }
+        return usersListResponse;
     }
 
     @Override

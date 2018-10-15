@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class AuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler{
 
     private static final Logger LOGGER
-            = Logger.getLogger(AuthenticationFailureHandler.class.getCanonicalName());
+            = Logger.getLogger(AuthenticationFailureHandler.class.getName());
 
     @Override
     public void onAuthenticationFailure(
@@ -21,7 +21,7 @@ public class AuthenticationFailureHandler extends SimpleUrlAuthenticationFailure
             HttpServletResponse response,
             AuthenticationException exception
     ) throws IOException, ServletException {
-        LOGGER.info("on Authentication failure");
+        LOGGER.info("onAuthenticationFailure: authentication failed");
         response.setStatus(401);
         response.addHeader("Content-Type", "application/json;charset=UTF-8");
         response.getWriter().print("{\"message\":\"INVALID\"}");

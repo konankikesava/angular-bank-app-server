@@ -12,7 +12,8 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.springframework.version>5.0.4.RELEASE</org.springframework.version>
+        <org.springframework.version>5.1.0.RELEASE</org.springframework.version>
+        <hibernate.version>5.3.6.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -31,6 +32,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
         <!-- Aspect Oriented Programming (AOP) Framework 
@@ -117,13 +123,13 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>5.0.0.RELEASE</version>
+            <version>${org.springframework.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>5.0.0.RELEASE</version>
+            <version>${org.springframework.version}</version>
         </dependency>
 
         <!-- MySQL database driver -->
@@ -137,7 +143,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.0.7.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
@@ -186,6 +192,11 @@
             <version>2.9.4</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
 
     </dependencies>
 
