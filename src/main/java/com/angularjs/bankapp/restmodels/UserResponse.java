@@ -24,7 +24,7 @@ public class UserResponse {
     private String lastName;
     private String gender;
     private Boolean isActive = true;
-    private Set<Authorities> authorities = new HashSet<>();
+    private Set<AuthoritiesResponse> authorities = new HashSet<>();
 
     public UserResponse(){}
 
@@ -37,7 +37,9 @@ public class UserResponse {
         this.lastName = lastName;
         this.gender = gender;
         this.isActive = isActive;
-        this.authorities = authorities;
+        authorities.forEach((authority) -> {
+            this.authorities.add(new AuthoritiesResponse(authority));
+        });
     }
 
     public UserResponse(User user) {
@@ -47,7 +49,9 @@ public class UserResponse {
         this.lastName = user.getLastName();
         this.gender = user.getGender();
         this.isActive = user.getIsActive();
-        this.authorities = user.getAuthorities();
+        user.getAuthorities().forEach((authority) -> {
+            this.authorities.add(new AuthoritiesResponse(authority));
+        });
     }
 
     public int getId() {
@@ -98,11 +102,13 @@ public class UserResponse {
         this.isActive = isActive;
     }
 
-    public Set<Authorities> getAuthorities() {
+    public Set<AuthoritiesResponse> getAuthorities() {
         return authorities;
     }
 
     public void setAuthorities(Set<Authorities> authorities) {
-        this.authorities = authorities;
+        authorities.forEach((authority) -> {
+            this.authorities.add(new AuthoritiesResponse(authority));
+        });
     }
 }

@@ -5,7 +5,6 @@
  */
 package com.angularjs.bankapp.config;
 
-import com.angularjs.bankapp.settings.Constants;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

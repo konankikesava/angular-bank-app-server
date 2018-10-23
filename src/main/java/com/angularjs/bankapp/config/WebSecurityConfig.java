@@ -22,6 +22,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -110,14 +111,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        .and()
 //        .exceptionHandling().accessDeniedPage("/Access_Denied");
         http
+                .cors()
+                .and()
                 .csrf().disable()
                 .authorizeRequests()
+                .mvcMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .mvcMatchers(HttpMethod.GET, "/home").permitAll()
                 .anyRequest().authenticated()
                 .and()
+                .addFilterBefore(new CORSFilter(), ChannelProcessingFilter.class)
                 .addFilterBefore(
                     authenticationFilter(),
-                    CustomAuthenticationFilter.class)
+                    CustomAuthenticationFilter.class
+                )
                 .logout().logoutUrl("/logout")
                 .logoutSuccessHandler(customLogoutSuccessHandler)
                 .and()

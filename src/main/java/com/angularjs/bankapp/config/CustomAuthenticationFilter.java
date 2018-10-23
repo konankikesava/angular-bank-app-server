@@ -1,6 +1,5 @@
 package com.angularjs.bankapp.config;
 
-import com.angularjs.bankapp.controller.UserController;
 import com.angularjs.bankapp.restmodels.LoginRequest;
 import java.io.IOException;
 import java.util.logging.Level;
