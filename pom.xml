@@ -13,6 +13,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.springframework.version>5.1.0.RELEASE</org.springframework.version>
+        <org.springframework.data.version>2.1.2.RELEASE</org.springframework.data.version>
         <hibernate.version>5.3.6.Final</hibernate.version>
     </properties>
 
@@ -132,12 +133,31 @@
             <version>${org.springframework.version}</version>
         </dependency>
 
-        <!-- MySQL database driver -->
+        <!-- Auditing -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+            <version>${org.springframework.data.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${org.springframework.data.version}</version>
+        </dependency>
+
+        <!-- PostgresSQL database driver -->
 	<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
-	</dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.5</version>
+        </dependency>
 
         <!-- Hibernate framework -->
         <dependency>

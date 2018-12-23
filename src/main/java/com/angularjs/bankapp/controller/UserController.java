@@ -33,9 +33,6 @@ public class UserController {
 
     @Autowired
     IUserService userService;
-     
-    @Autowired
-    AuthenticationTrustResolver authenticationTrustResolver;
 
     private static final Logger LOGGER =
             Logger.getLogger(UserController.class.getName());
